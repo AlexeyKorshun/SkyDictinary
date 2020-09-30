@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SkyDictonary</string>
+
+    <string name="list_input_hint">Input a word</string>
+    <string name="text_empty">Translation not found</string>
+    <string name="text_error">Something went wrong</string>
+</resources>
