@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.alexeykorshun.android.skydictonary.R
-import com.alexeykorshun.skydictonary.data.MeaningItem
+import com.alexeykorshun.skydictonary.ui.list.ListView.MeaningItem
 import kotlinx.android.synthetic.main.i_meaning.view.*
 
 /**

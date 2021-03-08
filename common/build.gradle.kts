@@ -36,6 +36,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-common:1.4.30")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
                 api("com.arkivanov.mvikotlin:mvikotlin:$mvikotlin")
                 implementation("com.arkivanov.mvikotlin:mvikotlin-main:$mvikotlin")
                 implementation("com.arkivanov.mvikotlin:mvikotlin-extensions-reaktive:$mvikotlin")
