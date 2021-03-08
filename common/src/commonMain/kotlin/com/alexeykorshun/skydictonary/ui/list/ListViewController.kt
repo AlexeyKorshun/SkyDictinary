@@ -1,8 +1,8 @@
-package com.alexeykorshun.android.skydictonary.ui.list
+package com.alexeykorshun.skydictonary.ui.list
 
-import com.alexeykorshun.android.skydictonary.network.DictionaryApiImpl
-import com.alexeykorshun.android.skydictonary.store.DictionaryStore
-import com.alexeykorshun.android.skydictonary.store.DictionaryStoreFactory
+import com.alexeykorshun.skydictonary.network.DictionaryApi
+import com.alexeykorshun.skydictonary.store.DictionaryStore
+import com.alexeykorshun.skydictonary.store.DictionaryStoreFactory
 import com.arkivanov.mvikotlin.core.binder.BinderLifecycleMode
 import com.arkivanov.mvikotlin.core.instancekeeper.InstanceKeeperProvider
 import com.arkivanov.mvikotlin.core.instancekeeper.getOrCreateStore
@@ -19,10 +19,10 @@ import com.badoo.reaktive.observable.mapNotNull
  * @author Alexei Korshun on 29.09.2020.
  */
 class ListViewController(
-    instanceKeeperProvider: InstanceKeeperProvider,
-    private val lifecycle: Lifecycle,
-    private val dictionaryApi: DictionaryApiImpl,
-    private val outputConsumer: (MeaningItem) -> Unit
+        instanceKeeperProvider: InstanceKeeperProvider,
+        private val lifecycle: Lifecycle,
+        private val dictionaryApi: DictionaryApi,
+        private val outputConsumer: (ListView.MeaningItem) -> Unit
 ) {
 
     private val store = instanceKeeperProvider.get<DictionaryStore>("dictionary_store")
@@ -47,7 +47,7 @@ class ListViewController(
 
 }
 
-private val eventToOutput: ListView.Event.() -> MeaningItem? = {
+private val eventToOutput: ListView.Event.() -> ListView.MeaningItem? = {
     when (this) {
         is ListView.Event.Translate -> null
         is ListView.Event.Clicked -> item
@@ -65,10 +65,12 @@ private val stateToModel: DictionaryStore.State.() -> ListView.Model = {
     ListView.Model(error, progress, meanings.asMeaningItems())
 }
 
-private fun List<DictionaryStore.State.Meanings>.asMeaningItems(): List<MeaningItem> = asSequence()
-    .map { meaning -> MeaningItem(meaning.text, meaning.translations.asItems()) }
+private fun List<DictionaryStore.State.Meanings>.asMeaningItems(): List<ListView.MeaningItem> = asSequence()
+    .map { meaning -> ListView.MeaningItem(meaning.text, meaning.translations.asItems()) }
     .toList()
 
-private fun List<DictionaryStore.State.Translation>.asItems(): List<MeaningItem.TranslationItem> = asSequence()
-    .map { translation -> MeaningItem.TranslationItem(translation.translation, translation.images.full, translation.images.preview) }
+private fun List<DictionaryStore.State.Translation>.asItems(): List<ListView.MeaningItem.TranslationItem> = asSequence()
+    .map { translation ->
+        ListView.MeaningItem.TranslationItem(translation.translation, translation.images.full, translation.images.preview)
+    }
     .toList()

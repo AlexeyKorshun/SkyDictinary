@@ -1,6 +1,7 @@
 package com.alexeykorshun.android.skydictonary.ui.list
 
 import androidx.recyclerview.widget.DiffUtil
+import com.alexeykorshun.skydictonary.ui.list.ListView.MeaningItem
 
 /**
  * @author Alexey Korshun on 30.09.2020.

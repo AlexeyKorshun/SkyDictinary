@@ -1,6 +1,6 @@
-package com.alexeykorshun.android.skydictonary.network
+package com.alexeykorshun.skydictonary.network
 
-import com.alexeykorshun.android.skydictonary.store.DictionaryStore
+import com.alexeykorshun.skydictonary.store.DictionaryStore
 
 /**
  * @author Alexei Korshun on 29.09.2020.
@@ -13,5 +13,5 @@ class DictionaryApiImpl : DictionaryApi {
         .url("https://dictionary.skyeng.ru/api/public/v1/words/search?search=$word")
         .build()
         .let { client.execute(it) }
-        .let { DictionaryDeserializer.parse(it) }
+        .let { DictionaryDeserializer().parse(it) }
 }

@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.alexeykorshun.android.skydictonary.R
 import com.alexeykorshun.android.skydictonary.extension.argument
-import com.alexeykorshun.android.skydictonary.ui.list.MeaningItem
+import com.alexeykorshun.skydictonary.ui.list.ListView.MeaningItem
 import kotlinx.android.synthetic.main.f_details.view.*
 
 /**
@@ -17,14 +17,14 @@ class MeaningDetailsFragment : Fragment(R.layout.f_details) {
 
         fun newInstance(item: MeaningItem): Fragment =
             MeaningDetailsFragment()
-                .apply { meaningItem = item }
+                .apply { meaningItem = item.toString() }
     }
 
-    private var meaningItem: MeaningItem by argument()
+    private var meaningItem: String by argument()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.listTranslations.adapter = TranslationAdapter(meaningItem.translations)
-        requireActivity().title = meaningItem.text
+        view.listTranslations.adapter = TranslationAdapter(MeaningItem.fromString(meaningItem).translations)
+        requireActivity().title = MeaningItem.fromString(meaningItem).text
     }
 }
