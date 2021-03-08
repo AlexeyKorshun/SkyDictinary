@@ -1,4 +1,4 @@
-package com.alexeykorshun.android.skydictonary.network
+package com.alexeykorshun.skydictonary.network
 
 /**
  * @author Alexei Korshun on 29.09.2020.

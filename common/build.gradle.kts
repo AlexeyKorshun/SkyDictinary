@@ -17,6 +17,7 @@ android {
     buildToolsVersion("30.0.3")
     compileSdkVersion(30)
 
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdkVersion(23)
         targetSdkVersion(30)
@@ -26,20 +27,17 @@ android {
 }
 
 kotlin {
-    val reaktiveVersion = "1.1.18"
-    val settingsVersion = "0.6.2"
-    val serializationVersion = "1.0.1"
-    val mvikotlin = "2.0.0"
+    val reaktiveVersion = "1.1.20"
+    val mvikotlin = "2.0.1"
 
     android()
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
-                implementation("com.russhwolf:multiplatform-settings:$settingsVersion")
+                implementation("org.jetbrains.kotlin:kotlin-stdlib-common:1.4.30")
                 api("com.arkivanov.mvikotlin:mvikotlin:$mvikotlin")
-                api("com.arkivanov.mvikotlin:mvikotlin-commonMain:$mvikotlin")
+                api("com.arkivanov.mvikotlin:mvikotlin-main:$mvikotlin")
                 api("com.arkivanov.mvikotlin:mvikotlin-extensions-reaktive:$mvikotlin")
                 api("com.arkivanov.mvikotlin:mvikotlin-logging:$mvikotlin")
                 api("com.arkivanov.mvikotlin:keepers:$mvikotlin")

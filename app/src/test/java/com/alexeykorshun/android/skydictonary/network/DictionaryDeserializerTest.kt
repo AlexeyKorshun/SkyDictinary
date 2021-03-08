@@ -12,21 +12,21 @@ class DictionaryDeserializerTest {
 
     @Test
     fun `test size`() {
-        assertEquals(1, DictionaryDeserializer.parse(rawString).size)
+        assertEquals(1, com.alexeykorshun.skydictonary.network.DictionaryDeserializer.parse(rawString).size)
     }
 
     @Test
     fun `test meaning text`() {
-        assertEquals("test", DictionaryDeserializer.parse(rawString).first().text)
+        assertEquals("test", com.alexeykorshun.skydictonary.network.DictionaryDeserializer.parse(rawString).first().text)
     }
 
     @Test
     fun `test translations size`() {
-        assertEquals(1, DictionaryDeserializer.parse(rawString).first().translations.size)
+        assertEquals(1, com.alexeykorshun.skydictonary.network.DictionaryDeserializer.parse(rawString).first().translations.size)
     }
 
     @Test
     fun `test translations text`() {
-        assertEquals("экзамен", DictionaryDeserializer.parse(rawString).first().translations.first().translation)
+        assertEquals("экзамен", com.alexeykorshun.skydictonary.network.DictionaryDeserializer.parse(rawString).first().translations.first().translation)
     }
 }

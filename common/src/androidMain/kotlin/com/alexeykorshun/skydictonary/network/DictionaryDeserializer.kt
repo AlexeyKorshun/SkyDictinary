@@ -1,15 +1,15 @@
-package com.alexeykorshun.android.skydictonary.network
+package com.alexeykorshun.skydictonary.network
 
-import com.alexeykorshun.android.skydictonary.store.DictionaryStore
+import com.alexeykorshun.skydictonary.store.DictionaryStore
 import org.json.JSONArray
 import org.json.JSONObject
 
 /**
- * @author Alexei Korshun on 29.09.2020.
+ * @author Alexei Korshun on 08.03.2021.
  */
-object DictionaryDeserializer {
+actual class DictionaryDeserializer {
 
-    fun parse(raw: String): List<DictionaryStore.State.Meanings> = JSONArray(raw)
+    actual fun parse(raw: String): List<DictionaryStore.State.Meanings> = JSONArray(raw)
         .asSequence()
         .map {
             DictionaryStore.State.Meanings(

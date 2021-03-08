@@ -1,8 +1,9 @@
-package com.alexeykorshun.android.skydictonary.ui.list
+package com.alexeykorshun.skydictonary.ui.list
 
-import com.alexeykorshun.android.skydictonary.network.DictionaryApiImpl
-import com.alexeykorshun.android.skydictonary.store.DictionaryStore
-import com.alexeykorshun.android.skydictonary.store.DictionaryStoreFactory
+import com.alexeykorshun.skydictonary.data.MeaningItem
+import com.alexeykorshun.skydictonary.network.DictionaryApi
+import com.alexeykorshun.skydictonary.store.DictionaryStore
+import com.alexeykorshun.skydictonary.store.DictionaryStoreFactory
 import com.arkivanov.mvikotlin.core.binder.BinderLifecycleMode
 import com.arkivanov.mvikotlin.core.instancekeeper.InstanceKeeperProvider
 import com.arkivanov.mvikotlin.core.instancekeeper.getOrCreateStore
@@ -21,7 +22,7 @@ import com.badoo.reaktive.observable.mapNotNull
 class ListViewController(
     instanceKeeperProvider: InstanceKeeperProvider,
     private val lifecycle: Lifecycle,
-    private val dictionaryApi: DictionaryApiImpl,
+    private val dictionaryApi: DictionaryApi,
     private val outputConsumer: (MeaningItem) -> Unit
 ) {
 

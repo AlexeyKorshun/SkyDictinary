@@ -1,4 +1,4 @@
-package com.alexeykorshun.android.skydictonary.network
+package com.alexeykorshun.skydictonary.network
 
 import android.util.Log
 import java.io.BufferedReader

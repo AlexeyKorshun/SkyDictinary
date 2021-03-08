@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.alexeykorshun.android.skydictonary.R
-import com.alexeykorshun.android.skydictonary.network.DictionaryApiImpl
 import com.alexeykorshun.android.skydictonary.ui.details.MeaningDetailsFragment
+import com.alexeykorshun.skydictonary.data.MeaningItem
+import com.alexeykorshun.skydictonary.network.DictionaryApiImpl
+import com.alexeykorshun.skydictonary.ui.list.ListViewController
 import com.arkivanov.mvikotlin.extensions.androidx.instancekeeper.getInstanceKeeperProvider
 import com.arkivanov.mvikotlin.extensions.androidx.lifecycle.asMviLifecycle
 

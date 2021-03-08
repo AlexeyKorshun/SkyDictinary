@@ -1,6 +1,6 @@
-package com.alexeykorshun.android.skydictonary.network
+package com.alexeykorshun.skydictonary.network
 
-import com.alexeykorshun.android.skydictonary.store.DictionaryStore
+import com.alexeykorshun.skydictonary.store.DictionaryStore
 
 /**
  * @author Alexei Korshun on 29.09.2020.

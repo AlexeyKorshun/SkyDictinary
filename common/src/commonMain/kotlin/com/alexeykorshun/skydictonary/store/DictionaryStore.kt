@@ -1,4 +1,4 @@
-package com.alexeykorshun.android.skydictonary.store
+package com.alexeykorshun.skydictonary.store
 
 import com.arkivanov.mvikotlin.core.store.Store
 

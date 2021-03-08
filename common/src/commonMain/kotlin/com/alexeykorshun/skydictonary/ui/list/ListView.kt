@@ -1,9 +1,10 @@
-package com.alexeykorshun.android.skydictonary.ui.list
+package com.alexeykorshun.skydictonary.ui.list
 
+import com.alexeykorshun.skydictonary.data.MeaningItem
 import com.arkivanov.mvikotlin.core.view.MviView
 
 /**
- * @author Alexei Korshun on 29.09.2020.
+ * @author Alexei Korshun on 08.03.2021.
  */
 interface ListView : MviView<ListView.Model, ListView.Event> {
 

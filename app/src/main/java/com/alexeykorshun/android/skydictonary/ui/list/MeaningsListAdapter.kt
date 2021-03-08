@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.alexeykorshun.android.skydictonary.R
+import com.alexeykorshun.skydictonary.data.MeaningItem
 import kotlinx.android.synthetic.main.i_meaning.view.*
-import java.io.Serializable
 
 /**
  * @author Alexey Korshun on 30.09.2020.
@@ -47,16 +47,4 @@ class MeaningViewHolder(view: View, clickListener: (MeaningItem) -> Unit) : Recy
         this.item = item
         itemView.textMeaning.text = item.text
     }
-}
-
-data class MeaningItem(
-    val text: String,
-    val translations: List<TranslationItem>
-) : Serializable {
-
-    data class TranslationItem(
-        val text: String,
-        val fullImageUrl: String,
-        val previewImageUrl: String
-    ) : Serializable
 }

@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.alexeykorshun.android.skydictonary.R
 import com.alexeykorshun.android.skydictonary.extension.argument
-import com.alexeykorshun.android.skydictonary.ui.list.MeaningItem
+import com.alexeykorshun.skydictonary.data.MeaningItem
 import kotlinx.android.synthetic.main.f_details.view.*
 
 /**

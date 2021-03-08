@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.alexeykorshun.skydictonary">
+
+    <uses-sdk
+        android:minSdkVersion="23"
+        android:targetSdkVersion="30" />
+</manifest>

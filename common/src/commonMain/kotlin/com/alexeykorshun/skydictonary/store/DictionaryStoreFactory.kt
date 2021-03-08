@@ -1,20 +1,24 @@
-package com.alexeykorshun.android.skydictonary.store
+package com.alexeykorshun.skydictonary.store
 
-import com.alexeykorshun.android.skydictonary.network.DictionaryApiImpl
+import com.alexeykorshun.skydictonary.network.DictionaryApi
 import com.arkivanov.mvikotlin.core.store.Reducer
 import com.arkivanov.mvikotlin.core.store.Store
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.arkivanov.mvikotlin.extensions.reaktive.ReaktiveExecutor
 import com.badoo.reaktive.scheduler.ioScheduler
 import com.badoo.reaktive.scheduler.mainScheduler
-import com.badoo.reaktive.single.*
+import com.badoo.reaktive.single.doOnBeforeSubscribe
+import com.badoo.reaktive.single.map
+import com.badoo.reaktive.single.observeOn
+import com.badoo.reaktive.single.singleFromFunction
+import com.badoo.reaktive.single.subscribeOn
 
 /**
  * @author Alexei Korshun on 29.09.2020.
  */
 class DictionaryStoreFactory(
     private val storeFactory: StoreFactory,
-    private val dictionaryApi: DictionaryApiImpl
+    private val dictionaryApi: DictionaryApi
 ) {
 
     fun create(): DictionaryStore = object : DictionaryStore,
