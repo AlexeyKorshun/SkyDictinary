@@ -37,18 +37,15 @@ kotlin {
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-common:1.4.30")
                 api("com.arkivanov.mvikotlin:mvikotlin:$mvikotlin")
-                api("com.arkivanov.mvikotlin:mvikotlin-main:$mvikotlin")
-                api("com.arkivanov.mvikotlin:mvikotlin-extensions-reaktive:$mvikotlin")
-                api("com.arkivanov.mvikotlin:mvikotlin-logging:$mvikotlin")
-                api("com.arkivanov.mvikotlin:keepers:$mvikotlin")
-                api("com.badoo.reaktive:reaktive:$reaktiveVersion")
+                implementation("com.arkivanov.mvikotlin:mvikotlin-main:$mvikotlin")
+                implementation("com.arkivanov.mvikotlin:mvikotlin-extensions-reaktive:$mvikotlin")
+                implementation("com.arkivanov.mvikotlin:mvikotlin-logging:$mvikotlin")
+                implementation("com.arkivanov.mvikotlin:keepers:$mvikotlin")
+                implementation("com.badoo.reaktive:reaktive:$reaktiveVersion")
             }
         }
 
         val androidMain by getting {
-            dependencies {
-                api("com.arkivanov.mvikotlin:mvikotlin-extensions-androidx:$mvikotlin")
-            }
         }
     }
 }
