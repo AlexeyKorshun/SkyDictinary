@@ -33,8 +33,9 @@ class ListFragment : Fragment(R.layout.f_list) {
 
     private fun showDetails(item: MeaningItem) {
         parentFragmentManager.beginTransaction()
+            .setReorderingAllowed(true)
             .replace(R.id.container, MeaningDetailsFragment.newInstance(item))
-            .addToBackStack(MeaningDetailsFragment.javaClass.canonicalName)
+            .addToBackStack(MeaningDetailsFragment::class.java.canonicalName)
             .commit()
     }
 }
