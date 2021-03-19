@@ -44,7 +44,7 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.3.2")
-    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.appcompat:appcompat:1.3.0-beta01")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.fragment:fragment-ktx:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
@@ -53,7 +53,8 @@ dependencies {
     implementation("com.arkivanov.mvikotlin:mvikotlin-extensions-androidx:2.0.1")
 
     implementation("com.squareup.picasso:picasso:2.8")
-    project(":common")
+    implementation("com.google.accompanist:accompanist-coil:0.6.2")
+    implementation(project(":common"))
 
     implementation("androidx.compose.ui:ui:1.0.0-beta02")
     implementation("androidx.activity:activity-compose:1.3.0-alpha04")
