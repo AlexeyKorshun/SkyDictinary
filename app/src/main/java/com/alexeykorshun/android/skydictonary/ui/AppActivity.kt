@@ -15,6 +15,7 @@ class AppActivity : AppCompatActivity() {
         setContentView(R.layout.a_main)
         if (savedInstanceState == null && supportFragmentManager.fragments.size == 0) {
             supportFragmentManager.beginTransaction()
+                .setReorderingAllowed(true)
                 .replace(R.id.container, ListFragment())
                 .commit()
         }
