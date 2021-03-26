@@ -1,7 +1,10 @@
 package com.alexeykorshun.android.skydictonary.ui.list
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.alexeykorshun.android.skydictonary.R
 import com.alexeykorshun.android.skydictonary.ui.details.MeaningDetailsFragment
@@ -14,7 +17,7 @@ import com.arkivanov.mvikotlin.extensions.androidx.lifecycle.asMviLifecycle
 /**
  * @author Alexei Korshun on 29.09.2020.
  */
-class ListFragment : Fragment(R.layout.f_list) {
+class ListFragment : Fragment() {
 
     private val controller: ListViewController by lazy {
         ListViewController(
@@ -25,9 +28,12 @@ class ListFragment : Fragment(R.layout.f_list) {
         )
     }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+        ComposeView(requireContext())
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        controller.onViewCreated(ListViewImpl(view))
+        controller.onViewCreated(ListViewImpl(view as ComposeView))
         requireActivity().title = getString(R.string.app_name)
     }
 
