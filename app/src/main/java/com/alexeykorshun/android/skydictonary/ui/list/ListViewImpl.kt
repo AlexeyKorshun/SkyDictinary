@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -20,8 +22,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.alexeykorshun.android.skydictonary.R
@@ -63,16 +67,25 @@ private fun InputArea(
             .padding(horizontal = 12.dp, vertical = 24.dp)
     ) {
         val text = rememberSaveable { mutableStateOf("") }
+        val focusManager = LocalFocusManager.current
+
+        val action = {
+            focusManager.clearFocus()
+            onClick(text.value)
+        }
 
         TextField(
             value = text.value,
             onValueChange = { text.value = it },
             modifier = Modifier.weight(1f),
-            enabled = enabled
+            enabled = enabled,
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+            keyboardActions = KeyboardActions(onSearch = { if (text.value.isNotBlank()) action() }),
+            label = { Text(stringResource(R.string.list_input_hint)) }
         )
 
         IconButton(
-            onClick = { onClick(text.value) },
+            onClick = action,
             enabled = enabled && text.value.isNotBlank(),
         ) {
             Icon(
