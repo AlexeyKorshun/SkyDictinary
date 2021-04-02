@@ -5,7 +5,7 @@ import com.alexeykorshun.skydictonary.store.DictionaryStore
 /**
  * @author Alexei Korshun on 02.04.2021.
  */
-interface DictionaryDeserializer {
+class IosDictionaryDeserializer : DictionaryDeserializer {
 
-    fun parse(raw: String): List<DictionaryStore.State.Meanings>
+    override fun parse(raw: String): List<DictionaryStore.State.Meanings> = emptyList()
 }

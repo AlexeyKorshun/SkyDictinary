@@ -13,5 +13,5 @@ class DictionaryApiImpl : DictionaryApi {
         .url("https://dictionary.skyeng.ru/api/public/v1/words/search?search=$word")
         .build()
         .let { client.execute(it) }
-        .let { DictionaryDeserializer().parse(it) }
+        .let { AndroidDictionaryDeserializer().parse(it) }
 }
