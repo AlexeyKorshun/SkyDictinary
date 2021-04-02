@@ -7,9 +7,9 @@ import org.json.JSONObject
 /**
  * @author Alexei Korshun on 08.03.2021.
  */
-actual class DictionaryDeserializer {
+class AndroidDictionaryDeserializer : DictionaryDeserializer {
 
-    actual fun parse(raw: String): List<DictionaryStore.State.Meanings> = JSONArray(raw)
+    override fun parse(raw: String): List<DictionaryStore.State.Meanings> = JSONArray(raw)
         .asSequence()
         .map {
             DictionaryStore.State.Meanings(
